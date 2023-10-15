@@ -1,0 +1,13 @@
+name = "CocoTools"
+uuid = "769c873f-dd98-46d4-bd12-4e21f6b68b60"
+authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
+version = "1.0.0-DEV"
+
+[compat]
+julia = "1.9"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
