@@ -2,6 +2,7 @@ const vec_classes = 0:80
 
 
 const vec_classnames = [
+"background",
 "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", 
 "boat", "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", 
 "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe",
@@ -17,4 +18,4 @@ const vec_classnames = [
 
 const coco_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 
-# const coco_classnames   = sort( collect(Dict(zip(vec_classnames, vec_classes)); byvalue=true) )
+const coco_classnames   = sort( collect(Dict(zip(vec_classnames, vec_classes)); byvalue=true) )
