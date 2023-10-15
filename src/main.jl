@@ -17,4 +17,4 @@ const vec_classnames = [
 
 const coco_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 
-const coco_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true )
+# const coco_classnames   = sort( collect(Dict(zip(vec_classnames, vec_classes)); byvalue=true) )
