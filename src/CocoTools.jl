@@ -1,5 +1,9 @@
 module CocoTools
 
-# Write your package code here.
+
+export coco_classnumbers, coco_classnames
+
+include("./main.jl")
+
 
 end
