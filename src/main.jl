@@ -18,13 +18,8 @@ const coco_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
 
 const coco_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true)
 
-function createfolder(folder::String)
-    if folder[end] != "/"   folder = folder * "/"   end
-    if !isdir(folder)       mkdir(folder)           end
-end
-
 function coco_download(coco_data_folder::String)
-    createfolder(coco_data_folder)
+    createFolder(coco_data_folder)
 
     # download coco data
     Downloads.download("http://images.cocodataset.org/zips/train2017.zip",
