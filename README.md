@@ -8,5 +8,8 @@ Julia toolset for handling COCO-2017 dataset
 ## Usage
 using CocoTools
 
-coco_classnumbers # Dictionary with applicable class numbers (keys) and names (values)
-coco_classnames   # Dictionary with applicable class names (keys) and numbers (values)
+coco_download(folder) # Download COCO dataset to the target folder
+
+coco_classnumbers     # Dictionary with applicable class numbers (keys) and names (values)
+
+coco_classnames       # Dictionary with applicable class names (keys) and numbers (values)
