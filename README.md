@@ -10,6 +10,6 @@ using CocoTools
 
 coco_download(folder) # Download COCO dataset to the target folder
 
-coco_classnumbers     # Dictionary with applicable class numbers (keys) and names (values)
+coco_classnumbers     # Dictionary with class numbers (keys) and names (values)
 
-coco_classnames       # Dictionary with applicable class names (keys) and numbers (values)
+coco_classnames       # Dictionary with class names (keys) and numbers (values)
