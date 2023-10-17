@@ -21,7 +21,7 @@ const coco_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=
 function coco_download(folder::String)
     coco_data_folder = folder
     if coco_data_folder[end] == "/"   coco_data_folder = coco_data_folder[1:end-1]   end
-    if !isdir(coco_data_folder)       mkdir(coco_data_folder)                        end
+    mkpath(coco_data_folder)
     
     # download coco data
     if !isfile(coco_data_folder * "/train2017.zip")
