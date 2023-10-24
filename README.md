@@ -1,4 +1,4 @@
-# CocoTools
+# CocoTools.jl
 
 Julia toolset for handling COCO-2017 dataset
 
