@@ -1,7 +1,7 @@
 name = "CocoTools"
 uuid = "769c873f-dd98-46d4-bd12-4e21f6b68b60"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"

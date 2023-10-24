@@ -25,21 +25,25 @@ function coco_download(folder::String)
     
     # download coco data
     if !isfile(coco_data_folder * "/train2017.zip")
+        @info "Downloading COCO train data..."
         Downloads.download("http://images.cocodataset.org/zips/train2017.zip",
                             coco_data_folder * "/train2017.zip")
     end
 
     if !isfile(coco_data_folder * "/val2017.zip")
+        @info "Downloading COCO val data..."
         Downloads.download("http://images.cocodataset.org/zips/val2017.zip",
                             coco_data_folder * "/val2017.zip")
     end
 
     if !isfile(coco_data_folder * "/annotations_trainval2017.zip")
+        @info "Downloading COCO annotations..."
         Downloads.download("http://images.cocodataset.org/annotations/annotations_trainval2017.zip",
                             coco_data_folder * "/annotations_trainval2017.zip")
     end
 
     if !isfile(coco_data_folder * "/stuffthingmaps_trainval2017.zip")
+        @info "Downloading COCO stuffthingmaps..."
         Downloads.download("http://calvin.inf.ed.ac.uk/wp-content/uploads/data/cocostuffdataset/stuffthingmaps_trainval2017.zip",
                             coco_data_folder * "/stuffthingmaps_trainval2017.zip")
     end
