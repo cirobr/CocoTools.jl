@@ -1,5 +1,5 @@
 using Pkg
-envpath = expanduser("~/juliaenvs/dev/")
+envpath = expanduser("~/envs/dev/")
 Pkg.activate(envpath)
 
 using CocoTools
