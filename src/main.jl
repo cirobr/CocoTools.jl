@@ -49,8 +49,10 @@ function coco_download(folder::String)
     end
     
     # unzip coco data
-    run(`unzip $(coco_data_folder)/train2017.zip -d $(coco_data_folder)`)
-    run(`unzip $(coco_data_folder)/val2017.zip -d $(coco_data_folder)`)
-    run(`unzip $(coco_data_folder)/annotations_trainval2017.zip -d $(coco_data_folder)`)
-    run(`unzip $(coco_data_folder)/stuffthingmaps_trainval2017.zip -d $(coco_data_folder)`)
+    Threads.@sync begin
+        Threads.@spawn run(`unzip $(coco_data_folder)/train2017.zip -d $(coco_data_folder)`)
+        Threads.@spawn run(`unzip $(coco_data_folder)/val2017.zip -d $(coco_data_folder)`)
+        Threads.@spawn run(`unzip $(coco_data_folder)/annotations_trainval2017.zip -d $(coco_data_folder)`)
+        Threads.@spawn run(`unzip $(coco_data_folder)/stuffthingmaps_trainval2017.zip -d $(coco_data_folder)`)
+    end
 end
