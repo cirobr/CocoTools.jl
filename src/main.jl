@@ -55,4 +55,5 @@ function coco_download(folder::String)
         Threads.@spawn run(`unzip $(coco_data_folder)/annotations_trainval2017.zip -d $(coco_data_folder)`)
         Threads.@spawn run(`unzip $(coco_data_folder)/stuffthingmaps_trainval2017.zip -d $(coco_data_folder)`)
     end
+    @info "COCO data downloaded and unzipped."
 end
