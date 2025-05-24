@@ -1,5 +1,5 @@
 using Pkg
-envpath = expanduser("~/envs/dev/")
+envpath = expanduser("../")
 Pkg.activate(envpath)
 
 using CocoTools
