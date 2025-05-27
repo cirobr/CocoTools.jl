@@ -1,14 +1,14 @@
 name = "CocoTools"
 uuid = "769c873f-dd98-46d4-bd12-4e21f6b68b60"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
-version = "0.1.2"
+version = "0.1.4"
 
 [deps]
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 Downloads = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
 
 [compat]
-julia = "1.10"
+julia = "1.10 - 1.11"
 DataStructures = "0.18"
 Downloads = "1.6"
 
