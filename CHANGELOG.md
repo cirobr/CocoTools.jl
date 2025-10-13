@@ -1,7 +1,10 @@
+### v0.1.5
+* Compat Julia v1.12
+
 ### v0.1.4
-* Compat Julia 1.11
+* Compat Julia v1.11
 * Examples updated
 
 ### v0.1.2
-* Compat Julia 1.10
+* Compat Julia v1.10
 * Unzip downloads in multiple threads.
