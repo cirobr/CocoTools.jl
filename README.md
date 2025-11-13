@@ -8,6 +8,7 @@ Toolset for handling COCO-2017 dataset
 
 
 ## Usage
+```
 using CocoTools
 
 coco_download(folder) # Downloads the COCO dataset to the target folder
@@ -15,3 +16,4 @@ coco_download(folder) # Downloads the COCO dataset to the target folder
 coco_classnumbers(), coco_classnumber2classname()
 
 coco_classnames(), coco_classname2classnumber()
+```
