@@ -11,7 +11,7 @@ Toolset for handling COCO-2017 dataset
 ```
 using CocoTools
 
-coco_download(folder) # Downloads the COCO dataset to the target folder
+coco_download("path") # Downloads the COCO dataset
 
 coco_classnumbers(), coco_classnumber2classname()
 
