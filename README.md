@@ -10,8 +10,8 @@ Toolset for handling COCO-2017 dataset
 ## Usage
 using CocoTools
 
-coco_download(folder) # Download COCO dataset to the target folder
+coco_download(folder) # Downloads the COCO dataset to the target folder
 
-coco_classnumbers     # Dictionary with class numbers (keys) and names (values)
+coco_classnumbers(), coco_classnumber2classname()
 
-coco_classnames       # Dictionary with class names (keys) and numbers (values)
+coco_classnames(), coco_classname2classnumber()

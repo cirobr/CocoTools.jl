@@ -3,20 +3,32 @@ const vec_classes = 0:80
 const vec_classnames = [
 "background",
 "person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", 
-"boat", "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", 
+"boat", "traffic_light", "fire_hydrant", "stop_sign", "parking_meter", "bench", "bird", "cat", 
 "dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe",
 "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard",
-"sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard", "tennis racket", "bottle",
-"wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-"sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake",
+"sports_ball", "kite", "baseball_bat", "baseball_glove", "skateboard", "surfboard", "tennis_racket", "bottle",
+"wine_glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
+"sandwich", "orange", "broccoli", "carrot", "hot_dog", "pizza", "donut", "cake",
 "chair", "sofa", "pottedplant", "bed", "diningtable", "toilet", "tvmonitor", "laptop",
-"mouse", "remote", "keyboard", "cell phone", "microwave", "oven", "toaster", "sink",
-"refrigerator", "book", "clock", "vase", "scissors", "teddy bear", "hair drier", "toothbrush"
+"mouse", "remote", "keyboard", "cell_phone", "microwave", "oven", "toaster", "sink",
+"refrigerator", "book", "clock", "vase", "scissors", "teddy_bear", "hair_drier", "toothbrush"
 ]
 
-const coco_classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
+const classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
+const classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true)
 
-const coco_classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true)
+
+function coco_classnumbers(class::Int)
+    return get(classnumbers, class, classnumbers[0])   # 0 is background
+end
+const coco_classnumber2classname = coco_classnumbers
+
+
+function coco_classnames(name::String)
+    return get(classnames, name, classnames["background"])   # "background" is default
+end
+const coco_classname2classnumber = coco_classnames
+
 
 function coco_download(folder::String)
     coco_data_folder = folder
