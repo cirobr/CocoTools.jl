@@ -1,7 +1,7 @@
 module CocoTools
 
 
-export dfcoco, coco_download
+export dfcoco, coco_rgb2classes, coco_download
 
 import JSON3, HTTP
 import DataFrames: DataFrame

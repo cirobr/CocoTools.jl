@@ -53,6 +53,19 @@ function colormap2classnumber(colormap::Tuple{Int,Int,Int})
 end
 
 
+function coco_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
+    h, w = size(mask)
+    X = Matrix{Int}(undef, (h,w))
+    m = channelview(mask) .* 255 .|> Int   # CHW
+
+    for i in 1:h; for j in 1:w
+        X[i,j] = colormap2classnumber([m[1,i,j], m[2,i,j], m[3,i,j]])
+    end; end
+
+    return X
+end
+
+
 function coco_download(folder::String)
     coco_data_folder = folder
     if coco_data_folder[end] == "/"   coco_data_folder = coco_data_folder[1:end-1]   end
