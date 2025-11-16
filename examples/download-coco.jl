@@ -1,11 +1,9 @@
 using Pkg
-envpath = expanduser("../")
+envpath = expanduser("./")
 Pkg.activate(envpath)
+using CocoTools; c=CocoTools
 
-using CocoTools
-
-display(coco_classnumbers)
-display(coco_classnames)
+display(dfcoco)
 
 path = expanduser("./datasets/coco/")
-CocoTools.coco_download(path)
+c.coco_download(path)
