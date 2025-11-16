@@ -12,6 +12,10 @@ Toolset for handling COCO-2017 dataset
 using CocoTools; c=CocoTools
 dfcoco   # shows the complete class dataframe
 
+# download dataset
+path = expanduser("~/datasets/coco/")
+coco_download(path)
+
 # functions
 c.classnumber2classname(21) == "cow"
 c.classname2classnumber("cow") == 21
