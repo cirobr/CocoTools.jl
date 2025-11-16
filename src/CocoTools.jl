@@ -1,8 +1,10 @@
 module CocoTools
 
 
-export coco_classnumbers, coco_classnames, coco_download
+export dfcoco, coco_download
 
+import JSON3, HTTP
+import DataFrames: DataFrame
 import DataStructures
 import Downloads
 

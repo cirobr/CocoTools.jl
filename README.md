@@ -9,11 +9,16 @@ Toolset for handling COCO-2017 dataset
 
 ## Usage
 ```
-using CocoTools
+using CocoTools; c=CocoTools
+dfcoco   # shows the complete class dataframe
 
-coco_download("path") # Downloads the COCO dataset to the designated "path"
+# functions
+c.classnumber2classname(21) == "cow"
+c.classname2classnumber("cow") == 21
+c.colormap2classnumber((120,166,157)) == 21
 
-coco_classnumbers(), coco_classnumber2classname()
-
-coco_classnames(), coco_classname2classnumber()
+# alternative function names
+c.get_classname(0) == "background"
+c.get_classname(300) == "background"
+c.get_classnumber("background") == 0
 ```

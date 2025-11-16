@@ -1,9 +1,11 @@
-using CocoTools
+using CocoTools; c=CocoTools
 using Test
 
 @testset "CocoTools.jl" begin
-    @test coco_classnumbers(20)  == "cow"
-    @test coco_classnames("cow") == 20
-    @test coco_classnumbers(0)   == "background"
-    @test coco_classnumbers(90)  == "background"
+    @test c.classnumber2classname(21) == "cow"
+    @test c.classname2classnumber("cow") == 21
+    @test c.colormap2classnumber((120,166,157)) == 21
+    @test c.get_classname(0) == "background"
+    @test c.get_classname(300) == "background"
+    @test c.get_classnumber("background") == 0
 end

@@ -1,33 +1,56 @@
-const vec_classes = 0:80
+# read COCO categories from official url
+const COCO_CLASSES_URL = "https://raw.githubusercontent.com/cocodataset/panopticapi/master/panoptic_coco_categories.json"
+const JSON_PATH = "panoptic_coco_categories.json"
 
-const vec_classnames = [
-"background",
-"person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", 
-"boat", "traffic_light", "fire_hydrant", "stop_sign", "parking_meter", "bench", "bird", "cat", 
-"dog", "horse", "sheep", "cow", "elephant", "bear", "zebra", "giraffe",
-"backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee", "skis", "snowboard",
-"sports_ball", "kite", "baseball_bat", "baseball_glove", "skateboard", "surfboard", "tennis_racket", "bottle",
-"wine_glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-"sandwich", "orange", "broccoli", "carrot", "hot_dog", "pizza", "donut", "cake",
-"chair", "sofa", "pottedplant", "bed", "diningtable", "toilet", "tvmonitor", "laptop",
-"mouse", "remote", "keyboard", "cell_phone", "microwave", "oven", "toaster", "sink",
-"refrigerator", "book", "clock", "vase", "scissors", "teddy_bear", "hair_drier", "toothbrush"
-]
-
-const classnumbers = sort( Dict(zip(vec_classes, vec_classnames)) )
-const classnames   = sort( Dict(zip(vec_classnames, vec_classes)); byvalue=true)
+if !isfile(JSON_PATH)
+    @info "Downloading category table..."
+    HTTP.download(COCO_CLASSES_URL, JSON_PATH)
+end
 
 
-function coco_classnumbers(class::Int)
+# create dataframe
+data = JSON3.read(read(JSON_PATH, String))
+dfcoco = DataFrame(
+    supercategory=String[],
+    color=Tuple{Int,Int,Int}[],
+    isthing=Bool[],
+    id=Int[],
+    name=String[]
+    )
+
+for cat in data
+    supercategory = cat.supercategory
+    color         = cat.color |> Tuple
+    isthing       = cat.isthing::Int |> Bool
+    id            = cat.id::Int
+    name          = cat.name
+
+    push!(dfcoco, [supercategory, color, isthing, id, name])
+end
+
+vec_classnumbers   = vcat(0, dfcoco.id)
+vec_classnames     = vcat("background", dfcoco.name)
+vec_colormap       = vcat((0,0,0), dfcoco.color)
+const classnumbers = sort( Dict(zip(vec_classnumbers, vec_classnames)) )
+const classnames   = sort( Dict(zip(vec_classnames, vec_classnumbers)); byvalue=true)
+const colormaps    = sort( Dict(zip(vec_colormap, vec_classnumbers)); byvalue=true )
+
+
+function get_classname(class::Int)
     return get(classnumbers, class, classnumbers[0])   # 0 is background
 end
-const coco_classnumber2classname = coco_classnumbers
+const classnumber2classname = get_classname
 
 
-function coco_classnames(name::String)
+function get_classnumber(name::String)
     return get(classnames, name, classnames["background"])   # "background" is default
 end
-const coco_classname2classnumber = coco_classnames
+const classname2classnumber = get_classnumber
+
+
+function colormap2classnumber(colormap::Tuple{Int,Int,Int})
+    return get(colormaps, colormap, colormaps[(0,0,0)])   # (0,0,0) is background
+end
 
 
 function coco_download(folder::String)

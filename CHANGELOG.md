@@ -1,5 +1,6 @@
 ### v0.1.6
 * Dictionaries replaced by function calls.
+* Renamed functions.
 
 ### v0.1.5
 * Compat Julia v1.12.
