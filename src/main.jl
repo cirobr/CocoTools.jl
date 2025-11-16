@@ -59,7 +59,7 @@ function coco_rgb2classes(mask::AbstractArray{RGB{N0f8}, 2})
     m = channelview(mask) .* 255 .|> Int   # CHW
 
     for i in 1:h; for j in 1:w
-        X[i,j] = colormap2classnumber([m[1,i,j], m[2,i,j], m[3,i,j]])
+        X[i,j] = colormap2classnumber((m[1,i,j], m[2,i,j], m[3,i,j]))
     end; end
 
     return X
