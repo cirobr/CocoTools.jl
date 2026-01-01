@@ -1,6 +1,6 @@
 name = "CocoTools"
 uuid = "769c873f-dd98-46d4-bd12-4e21f6b68b60"
-version = "0.0.6"
+version = "0.0.1"
 authors = ["Ciro B Rosa <ciro.rosa@alumni.usp.br>"]
 
 [deps]
