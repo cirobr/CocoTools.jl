@@ -9,7 +9,7 @@ end
 
 
 # create dataframe
-data = JSON.read(read(JSON_PATH, String))
+data = JSON.parsefile(JSON_PATH)
 dfcoco = DataFrame(
     supercategory=String[],
     color=Tuple{Int,Int,Int}[],
@@ -32,13 +32,13 @@ class_numbers   = vcat(0, dfcoco.id)
 class_names     = vcat("background", dfcoco.name)
 
 dict_numbers = Dict(zip(class_numbers, class_names))
-classnumbers = OrderedDict( sort(collect(dict_numbers)) )
+classnumbers = DataStructures.OrderedDict( sort(collect(dict_numbers)) )
 function classnumber2classname(class::Int)
     return get(classnumbers, class, "void")
 end
 
 dict_names = Dict(zip(class_names, class_numbers))
-classnames = OrderedDict( sort(collect(dict_names)) )
+classnames = DataStructures.OrderedDict( sort(collect(dict_names)) )
 function classname2classnumber(name::String)
     return get(classnames, name, 255)   # 255 is void class
 end
