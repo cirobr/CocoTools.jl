@@ -1,13 +1,10 @@
 module CocoTools
 
 
-export dfcoco, coco_rgb2classes, coco_download
-
-import JSON3, HTTP
-import DataFrames: DataFrame
 import DataStructures
-import Images: RGB, N0f8, channelview
-import Downloads
+import Downloads, JSON, HTTP
+import DataFrames: DataFrame
+# import Images: RGB, N0f8, channelview
 
 include("./main.jl")
 
