@@ -1,4 +1,4 @@
 ### v0.0.1
-* Compatibility with Julia v1.13.
-* Major simplification.
-* Reset commit.
+* Compat Julia v1.10 - 1.14 pre
+* Major simplification
+* Reset commit

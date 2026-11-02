@@ -14,3 +14,4 @@ using CocoTools; ct=CocoTools
 ct.dfcoco   # shows the complete class dataframe
 ct.classnumber2classname(21) == "cow"
 ct.classname2classnumber("cow") == 21
+```
